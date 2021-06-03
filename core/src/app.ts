@@ -86,7 +86,8 @@ export class App {
     if (!this.config.appKey) {
       throw new Error('The appKey must be provided');
     }
-    if (!this.config.serverURL) {
+    // serverURL might be ''
+    if (this.config.serverURL !== undefined) {
       if (isCNApp(this)) {
         throw new Error('The serverURL must be provided for CN App');
       }
